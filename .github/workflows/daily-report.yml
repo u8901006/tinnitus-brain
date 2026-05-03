@@ -69,7 +69,7 @@ jobs:
         run: |
           python scripts/fetch_papers.py \
             --days 7 \
-            --max-papers 50 \
+            --max-papers 100 \
             --json \
             --output papers.json
         continue-on-error: true
