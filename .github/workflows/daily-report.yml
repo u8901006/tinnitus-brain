@@ -100,17 +100,17 @@ jobs:
             echo "{\"date\":\"${TARGET}\",\"count\":0,\"papers\":[]}" > papers.json
           fi
 
-      - name: Generate report with Zhipu AI
+      - name: Generate report with NVIDIA AI
         if: steps.papers.outputs.skip != 'true'
         env:
-          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
-          ZHIPU_API_BASE: ${{ vars.ZHIPU_API_BASE }}
-          ZHIPU_MODEL: ${{ vars.ZHIPU_MODEL }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          NVIDIA_API_BASE: https://integrate.api.nvidia.com/v1
+          NVIDIA_MODEL: nvidia/nemotron-3-super-120b-a12b
         run: |
           python scripts/generate_report.py \
             --input papers.json \
             --output "docs/tinnitus-${{ steps.date.outputs.target }}.html" \
-            --api-key "$ZHIPU_API_KEY"
+            --api-key "$NVIDIA_API_KEY"
 
       - name: Generate index page
         if: steps.papers.outputs.skip != 'true'
