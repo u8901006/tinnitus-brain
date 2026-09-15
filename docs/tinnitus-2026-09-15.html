@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tinnitus Brain &middot; 耳鳴研究文獻日報 &middot; 2026年9月15日</title>
+<meta name="description" content="2026年9月15日 耳鳴研究文獻日報，由 AI 自動彙整 PubMed 最新耳鳴、聽覺神經科學論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .utility-reason { font-size: 12.5px !important; color: var(--accent) !important; opacity: 0.85; margin-top: 8px; }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 32px; animation: fadeUp 0.5s ease 0.3s both; }
+  .links-banner .link-row { display: flex; gap: 12px; margin-bottom: 10px; }
+  .links-banner a { flex: 1; display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 20px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .links-banner a:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .links-banner .link-icon { font-size: 24px; flex-shrink: 0; }
+  .links-banner .link-text { font-size: 14px; font-weight: 600; }
+  .links-banner .link-arrow { font-size: 16px; color: var(--accent); font-weight: 700; margin-left: auto; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } .links-banner .link-row { flex-direction: column; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">👂</div>
+    <div class="header-text">
+      <h1>Tinnitus Brain &middot; 耳鳴研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月15日</span>
+        <span class="badge badge-count">📊 18 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日耳鳴研究聚焦於機制探索（特に聽覺-前庭-神經整合）、脈衝性耳鳴的血管介入療效、以及數位與心理治療的實證進展。多篇研究強調耳鳴與共病（如PTSD、焦慮、認知功能）的關聯，並指出個別化、多模式治療的必要性。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🦷</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>顳顎關節異常導致點擊性耳鳴：持續福氏孔經顳顎關節疝出的罕見病例</h3>
+          <p class="journal-source">Journal of Maxillofacial and Oral Surgery &middot; Spontaneous Temporomandibular Joint Herniation Through a Persistent Foramen of Huschke: An Unusual Cause Associated with Clicking Tinnitus</p>
+          <p>首次報告經持續福氏孔的顳顎關節組織疝出導致點擊性耳鳴，提示顳顎關節功能障礙應納入耳鳴鑑別診斷，尤其當伴有顳顎關節雜音或顳顎關節疼痛時。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">有點擊性耳鳴且顳顎關節雜音的患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">顳顎關節影像學評估（含CT/MRI）及顳顎關節功能檢查</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無顳顎關節異常的耳鳴對照組</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">透過影像學識別顳顎關節經持續福氏孔疝出為耳鳴病因，經顳顎關節保守治療或手術縮結後耳鳴顯著改善</span></div>
+            </div>
+          <p class="utility-reason">💡 提供可治療的結構性耳鳴病因，避免誤診為神經性耳鳴，開啟顳顎關節導向治療新方向。</p>
+          <div class="card-footer">
+            <span class="tag">顳顎關節</span><span class="tag">體感耳鳴</span><span class="tag">耳鳴機制</span><span class="tag">客觀性耳鳴</span>
+            <a href="https://doi.org/10.1007/s12663-026-03269-1" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>靜脈竇支架術治療脈衝性耳鳴：效果持久且適用於單纯性及IIH相關型</h3>
+          <p class="journal-source">Otology & Neurotology &middot; Venous Sinus Stenting for Pulsatile Tinnitus: A Systematic Review and Meta-Analysis</p>
+          <p>靜脈竇支術對脈衝性耳鳴具有高達89.8%的總體改善率和87.1%的完全解決率，復發率低於11%，無論是否伴有特發性顱內高血壓，療效相當，支持其作為一線血管介入療法。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">經影像學確認靜脈竇狹窄導致的脈衝性耳鳴患者（含IIH相關與單纯性）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">靜脈竇支架術（VSS）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">保守治療或其他介入（如類固醇注射）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">總體改善率89.8%，完全解決率87.1%，復發率10.9%，IIH組復發趨勢較高但無統計差異</span></div>
+            </div>
+          <p class="utility-reason">💡 提供高證據等級的介入療法選項，適合放射介入科與耳鼻喉科共同應用，對難治性脈衝性耳鳴具明確療益。</p>
+          <div class="card-footer">
+            <span class="tag">pulsatile耳鳴</span><span class="tag">神經調節</span><span class="tag">血管介入</span><span class="tag">耳鳴機制</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42476523/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🤖</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>人工智慧產生的耳鳴資訊品質評估：專家證實OpenEvidence優於一般LLMs與Google搜尋</h3>
+          <p class="journal-source">Otology & Neurotology &middot; Quality of Tinnitus Information From Generative AI Systems and Web Search: An Expert‑Rated Comparative Study</p>
+          <p>專家評鑑顯示，OpenEvidence在耳鳴資訊的正確性、完整性與臨床 usefulness 上顯著優於其他AI與Google搜尋，但所有系統在完整性上仍有不足，提示臨床應用需謹慎選擇資訊來源。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">尋求耳鳴資訊的患者與臨床醫師</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">使用六種生成式AI（OpenEvidence, Claude, DeepSeek, GPT-5, Gemini, GPT-4）及Google搜尋回答30個常見耳鳴問題</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">專家以QAMAI框架評分之品質差異</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">OpenEvidence平均得分4.45（最高），Google搜尋最低2.27；完整性是所有系統最弱項；可讀性與專家評分呈反比關係</span></div>
+            </div>
+          <p class="utility-reason">💡 臨床可據此推薦特定AI工具（如OpenEvidence）作為患者教育輔助工具，避免誤導性資訊，同時提醒醫師主動提供品質資訊。</p>
+          <div class="card-footer">
+            <span class="tag">生活品質</span><span class="tag">認知行為治療</span><span class="tag">人工智慧</span><span class="tag">患者教育</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42473942/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🔊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>雙模態聲音與電刺激療法在慢性主觀性耳鳴中的長期效果優於單一神經調節療法</h3>
+          <p class="journal-source">The Laryngoscope &middot; Neuromodulation for Subjective Tinnitus: A Systematic Review and Meta-Analysis of Randomized Trials</p>
+          <p>雙模態刺激（聲音+電刺激）在26項RCT中顯示臨床有意義且持久（≥12個月）的耳嚴重度改善（THI/TFI減少10-20分），而單獨tDCS或rTMS效果不顯著，支持雙模態為目前最具證據基礎的神經調節療法。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">慢性主觀性耳鳴成人（>3個月）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">雙模態刺激（聲音+電刺激，如ACR、VNS、 bimodal tDCS+聲音）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text"> sham對照或單一神經調節（tDCS、rTMS等）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">雙模態療法顯著改善THI/TFI（SMD約-0.6至-0.8），效果耐久12個月以上；tDCS與rTMS單獨使用無顯著效益</span></div>
+            </div>
+          <p class="utility-reason">💡 為臨床提供明確療法選擇：優先考慮雙模態介入，避免浪費資源於單一無效神經調節，並強調需標準化協議與長期追蹤。</p>
+          <div class="card-footer">
+            <span class="tag">雙模態刺激</span><span class="tag">神經調節</span><span class="tag">rTMS</span><span class="tag">tDCS</span><span class="tag">認知行為治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42167925/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🎖️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>耳鳴退伍軍人中PTSD與創傷性腦傷的共病影響：耳鳴獨立預測疼痛與功能障礙</h3>
+          <p class="journal-source">European Journal of Psychotraumatology &middot; Tinnitus among post-9/11 veterans: psychiatric comorbidity and associations with health and functional outcomes</p>
+          <p>在9/11後退伍軍人中，耳鳴佔比67.5%，且在控制PTSD與TBI後，耳鳴仍獨立解釋1.9-3%的疼痛與功能障礙變異，提示耳鳴為需獨立評估與介入的共病因子，非僅為伴隨症狀。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">9/11後美軍退伍軍人（n=735，平均年齡34.7歲，90.2%男性）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">耳鳴存在評估（併發PTSD與TBI）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無耳鳴對照組</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">耳鳴獨立預測疼痛（β=.184）與功能障礙（β=.145），即使調整PTSD嚴重度與TBI數量後仍顯著；耳鳴隨時間穩定但不預測未來惡化</span></div>
+            </div>
+          <p class="utility-reason">💡 提醒復健與精神健康醫師：在創傷族群中耳鳴需納入常規篩檢，其治療可能改善疼痛與功能復原，而非僅緩解耳鳴主觀感受。</p>
+          <div class="card-footer">
+            <span class="tag">創傷後壓力症</span><span class="tag">退伍軍人</span><span class="tag">生活品質</span><span class="tag">認知行為治療</span><span class="tag">耳鳴機制</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41746144/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>耳鳴患者的靜態腦波特徵：高頻皮質興奮-抑制失衡與前額葉連線減少可能反映情緒困擾</h3>
+          <p class="journal-source">Hearing Research &middot; Are there distinctive EEG Signatures of tinnitus-related emotional distress? Evidence from spectral parameterization and source-level functional connectivity</p>
+          <p>耳鳴患者靜息EEG顯示較高無週期指數（反映皮質興奮-抑制失衡）、顳葉α波頻率下降、以及聽覺-頂葉同步增強但前額葉-前 cingulate 連線減少，這些特徵可能更貼近耳鳴相關情緒困擾而非單純抑鬱，為神經調節提供新目標。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">主觀性耳鳴患者 vs 年齡匹配健康對照</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">靜息EEG + 頻譜參數化（aperiodic exponent, α峰值） + 來源層面相位鎖定值（PLV）功能連線分析</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組的EEG特徵</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">耳鳴組：↑ aperiodic exponent，↓ temporal α peak，↑ 聽覺-顳葉/parietal PLV，↓ 聽覺-前 cingulate / 前額葉 PLV</span></div>
+            </div>
+          <p class="utility-reason">💡 提供客觀生理標誌物潛力，未來可用於分型耳鳴、預測神經調節療效或作為生物回饋目標，但尚需縱向驗證與臨床轉化研究。</p>
+          <div class="card-footer">
+            <span class="tag">耳鳴機制</span><span class="tag">認知行為治療</span><span class="tag">神經調節</span><span class="tag">焦慮症</span><span class="tag">情緒</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42732697/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">🧬</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>慢性耳鳴中的腦靜態活動異常與神經遞質耦合：左上顳葉活動增多與右顳懷葉減少分別關聯5-HT、DA、GABA與ACh系統</h3>
+          <p class="journal-source">Brain Research Bulletin &middot; Dynamic and static spontaneous activity alterations and neurotransmitter coupling in chronic tinnitus</p>
+          <p>慢性耳鳴患者左上顳葉sALFF顯著增加，右顳懷葉dALFF顯著減少，且這些異常分別與5-HT轉運蛋白、多巴胺、谷氨酸、GABA及乙醯膽鹼轉運蛋白（VAChT）的空間分布相關，揭示神經遞質失衡在耳鳴持續中的關鍵角色。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">慢性主觀性耳鳴患者（n=80） vs 健康對照（n=68）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">靜態fMRI測量sALFF & dALFF + 神經遞質分布圖譜相關分析</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照的sALFF/dALFF與神經遞質分布</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">左STG sALFF ↑，右PCu dALFF ↓；sALFF異常與5-HTT、DA、Glu、GABA相關；dALFF異常與5-HTT、DA、VAChT相關</span></div>
+            </div>
+          <p class="utility-reason">💡 深化耳鳴的神經機制理解，為未來藥物或神經調節靶向特定遞質系統（如5-HT、DA、ACh）提供理論基礎，但尚未直接轉化為臨床干預。</p>
+          <div class="card-footer">
+            <span class="tag">耳鳴機制</span><span class="tag">神經調節</span><span class="tag">焦慮症</span><span class="tag">憂鬱症</span><span class="tag">神經遞質</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42716315/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏥</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>耳鳴練習模式在韓國大學醫院的演變：2025年全國調查與2013年比較</h3>
+          <p class="journal-source">Clinical and Experimental Otorhinolaryngology</p>
+          <p>與2013相比，2025年韓國大學醫院耳鳴診療更重視心理評估與結構化問卷，數位療法與神經調節雖增加但常規使用仍低，顯示證據與實踐落差持續存在。</p>
+          <div class="card-footer">
+            <span class="tag">認知行為治療</span><span class="tag">神經調節</span><span class="tag">流行病學</span><span class="tag">生活品質</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42706937/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💭</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>早期不適應圖式在恐音症中的角色：超越人格特質與一般精神病理的增量貢獻</h3>
+          <p class="journal-source">Hearing Research</p>
+          <p>恐音症患者在所有早期不適應圖式（EMS）評分顯著升高，尤其Entitlement與Emotional Inhibition為獨立預測因子，提示EMS可能是恐音症認知核心，可作為心理治療靶標。</p>
+          <div class="card-footer">
+            <span class="tag">恐音症</span><span class="tag">認知行為治療</span><span class="tag">心理機制</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42542004/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">⚖️</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>主觀性體感耳鳴中的前庭-聽覺通路 asymmetries：VEMP異常預測下殘丘聽覺不對稱</h3>
+          <p class="journal-source">Hearing Research</p>
+          <p>單側體感耳鳴患者oVEMP幅度在耳鳴側顯著降低，cVEMP與oVEMP異常共同解釋45.2%的下殘丘ABR wave V 不對稱，支持體感耳鳴涉及前庭-聽覺跨模態重組。</p>
+          <div class="card-footer">
+            <span class="tag">體感耳鳴</span><span class="tag">前庭功能</span><span class="tag">VEMP</span><span class="tag">ABR</span><span class="tag">耳鳴機制</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42600509/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💆</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>耳鳴、過敏性聽覺與身體症狀在挪威多樣化臨床族群中的關聯：女性與復健中心患者更見身體併發症</h3>
+          <p class="journal-source">Annals of Medicine</p>
+          <p>耳鳴患者身體症狀（頭痛、眩暈、顳顎關節 disorder、頸痛）與耳嚴重度、過敏性聽覺、焦慮憂鬱顯著正相關，女性及復健中心患者併發症較多，支持採用跨領域評估與介入模式。</p>
+          <div class="card-footer">
+            <span class="tag">過敏性聽覺</span><span class="tag">憂鬱症</span><span class="tag">焦慮症</span><span class="tag">身體活動</span><span class="tag">復健</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42402048/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>類固醇在特發性顱內高血壓中的真實世界使用：副作用近乎普遍但鉀補充可減少停藥</h3>
+          <p class="journal-source">Expert Review of Neurotherapeutics</p>
+          <p>特發性顱內高血壓患者使用乙酰唑胺副作用發生率高達99%，最常見為末端刺痛與味覺異常，但鉀補充顯著降低劑量減少或停藥率，提示電解質管理是提高依附性的關鍵。</p>
+          <div class="card-footer">
+            <span class="tag">pulsatile耳鳴</span><span class="tag">營養</span><span class="tag">副作用管理</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42731033/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>多奈哌齊在慢性耳鳴中的療效：雙盲安慰劑對照試驗未達統計顯著但見個案完全緩解</h3>
+          <p class="journal-source">Clinics (Sao Paulo, Brazil)</p>
+          <p>在雙盲隨機對照試驗中，多奈哌齊安慰劑對照組在THI改善上無統計顯著差異，但治療組見一人完全緩解及趨勢性改善，提示需更大樣本驗證其在特定亞型（如伴用助聽器）中的潛在效益。</p>
+          <div class="card-footer">
+            <span class="tag">神經調節</span><span class="tag">藥物治療</span><span class="tag">認知功能</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42710361/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔬</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>前庭神經鞘瘤患者聽力功能監測的可行性研究：為未來隨機對照試驗提供樣本量估計依據</h3>
+          <p class="journal-source">Otology & Neurotology</p>
+          <p>可行性研究證實在前庭神經鞘瘤觀察或放射手術後進行聽力監測（包含DiN-SRT50、4FAPTA、SSQ、TFI）具高完成率（80%）與可接受測試時長，為後續比較SRS與觀察等待對聽力保存的RCT提供必要變異估計。</p>
+          <div class="card-footer">
+            <span class="tag">聽力損失</span><span class="tag">生活品質</span><span class="tag">研究方法</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42727938/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🔊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>延伸高頻聽力檢驗與年輕人過敏性聽覺關聯：中頻EHF門檻升高可能反映中度過敏性聽覺</h3>
+          <p class="journal-source">Hearing Research</p>
+          <p>在無耳鳴、低噪暴露年輕人中，延伸高頻（8-16kHz）門檻在18.3 dB HL組（MED-hf）顯著相關較高過敏性聽覺問卷分數，提示中度EHF損失可能為過敏性聽覺的早期生理標誌，與語音在噪中辨識無關。</p>
+          <div class="card-footer">
+            <span class="tag">過敏性聽覺</span><span class="tag">延伸高頻</span><span class="tag">聽力檢驗</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42607640/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">💊</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>偏頭痛藥物對梅尼埃病症狀的影響：未治療偏頭痛增加耳鳴風險，治療後反增加發病率</h3>
+          <p class="journal-source">The Laryngoscope</p>
+          <p>偏頭痛患者罹患梅尼埃病風險增加，尤其未治療偏頭痛組雖耳鳴風險略升（RR=1.11），但治療組發病率顯著升高（RR>1），提示偏頭痛其藥物或病理過程可能促進內耳水腫形成。</p>
+          <div class="card-footer">
+            <span class="tag">梅尼埃病</span><span class="tag">偏頭痛</span><span class="tag">耳鳴</span><span class="tag">藥物治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42018740/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">😴</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>睡眠週期中耳鳴的時空神經動態：顳葉興奮在REM睡眠擴散至前額葉及枕顳區，可能解釋睡眠結構破壞機制</h3>
+          <p class="journal-source">Sleep Medicine</p>
+          <p>耳鳴患者在入睡前顳葉皮質興奮（hyperarousal）隨睡眠階段擴散至前額葉，並在REM睡眠進一步擴至枕顳區，此動態重新分布可能是耳鳴導致睡眠啟動與維持困難的神經機制。</p>
+          <div class="card-footer">
+            <span class="tag">失眠</span><span class="tag">耳鳴機制</span><span class="tag">EEG</span><span class="tag">神經調節</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42424745/" target="_blank">PubMed →</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🐭</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>機器學習驗證間隙驚嚇範式在耳鳴檢測中的有效性：以CBA/CaJ老鼠模型為基礎，濾除非驚嚇反應後準確度達98%</h3>
+          <p class="journal-source"></p>
+          <p>透過機器學習濾除非驚嚇反應，間隙準備脈衝抑制聲音驚嚇反射（GPIAS）在CBA/CaJ老鼠中達成98%區別真實起leap與非起leap反應的準確度，克服了大鼠模型中聲音驚嚇反射地板效應的限制，為動物模型耳鳴客觀測量提供改進方案。</p>
+          <div class="card-footer">
+            <span class="tag">耳鳴機制</span><span class="tag">客觀性耳鳴</span><span class="tag">動物模型</span><span class="tag">機器學習</span>
+            <a href="https://doi.org/10.64898/2026.09.05.747694" target="_blank">PubMed →</a>
+          </div>
+        </div></div>
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">耳鳴機制</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">7</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經調節</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:85%"></div></div>
+              <span class="topic-count">6</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">認知行為治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:71%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">生活品質</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:57%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">體感耳鳴</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:42%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">過敏性聽覺</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:42%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">PTSD</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">恐音症</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">顳顎關節</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">雙模態刺激</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">pulsatile耳鳴</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">EEG</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">前庭功能</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">人工智慧</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:28%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">耳鳴機制</span><span class="keyword">神經調節</span><span class="keyword">體感耳鳴</span><span class="keyword">認知行為治療</span><span class="keyword">生活品質</span><span class="keyword">PTSD</span><span class="keyword">過敏性聽覺</span><span class="keyword">恐音症</span><span class="keyword">顳顎關節</span><span class="keyword">雙模態刺激</span><span class="keyword">pulsatile耳鳴</span><span class="keyword">EEG</span><span class="keyword">前庭功能</span><span class="keyword">人工智慧</span></div></div>
+
+  <div class="links-banner">
+    <div class="link-row">
+      <a href="https://www.leepsyclinic.com/" target="_blank">
+        <span class="link-icon">🏥</span>
+        <span class="link-text">李政洋身心診所首頁</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" target="_blank">
+        <span class="link-icon">📬</span>
+        <span class="link-text">訂閱電子報</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+    <div class="link-row">
+      <a href="https://buymeacoffee.com/CYlee" target="_blank">
+        <span class="link-icon">☕</span>
+        <span class="link-text">Buy Me a Coffee</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/tinnitus-brain">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
