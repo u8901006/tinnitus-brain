@@ -17,8 +17,8 @@ import httpx
 API_BASE = os.environ.get(
     "NVIDIA_API_BASE", "https://integrate.api.nvidia.com/v1"
 )
-PRIMARY_MODEL = os.environ.get("NVIDIA_MODEL", "nvidia/nemotron-3-super-120b-a12b")
-FALLBACK_MODELS = ["nvidia/nemotron-3-nano-30b-a3b"]
+PRIMARY_MODEL = os.environ.get("NVIDIA_MODEL", "nvidia/nemotron-3-ultra-550b-a55b")
+FALLBACK_MODELS = []
 MAX_TOKENS = 16384
 REQUEST_TIMEOUT = 480
 
