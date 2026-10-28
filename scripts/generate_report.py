@@ -17,8 +17,8 @@ import httpx
 API_BASE = os.environ.get(
     "NVIDIA_API_BASE", "https://integrate.api.nvidia.com/v1"
 )
-PRIMARY_MODEL = os.environ.get("NVIDIA_MODEL", "nvidia/nemotron-3-ultra-550b-a55b")
-FALLBACK_MODELS = []
+PRIMARY_MODEL = os.environ.get("NVIDIA_MODEL", "nvidia/nemotron-3.5-lightning-30b-a3b")
+FALLBACK_MODELS = [s.strip() for s in os.environ.get("NVIDIA_MODELS", "deepseek-ai/deepseek-v4.1-flash").split(",") if s.strip()]
 MAX_TOKENS = 16384
 REQUEST_TIMEOUT = 480
 
